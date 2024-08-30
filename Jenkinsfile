@@ -68,7 +68,7 @@ pipeline {
             emailext(
                 subject: "Jenkins Job Success: ${env.JOB_NAME}",
                 body: "Good news, the Jenkins job ${env.JOB_NAME} has completed successfully.",
-                to: 'your-email@example.com'
+                to: 'dwaipayanghosh2014@gmail.com'
             )
         }
 
@@ -77,7 +77,7 @@ pipeline {
             emailext(
                 subject: "Jenkins Job Success: ${env.JOB_NAME}",
                 body: "Good news, the Jenkins job ${env.JOB_NAME} has completed successfully.",
-                to: 'your-email@example.com'
+                to: 'dwaipayanghosh2014@gmail.com'
             )
         }
     }
