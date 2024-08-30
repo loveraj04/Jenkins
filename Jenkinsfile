@@ -72,3 +72,38 @@ pipeline {
         }
     }
 }
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building...'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Testing...'
+            }
+        }
+    }
+
+    post {
+        success {
+            emailext(
+                subject: "Jenkins Job Success: ${env.JOB_NAME}",
+                body: "The Jenkins job ${env.JOB_NAME} has completed successfully.",
+                to: 'dwaipayanghosh2014@gmail.com'
+            )
+        }
+
+        failure {
+            emailext(
+                subject: "Jenkins Job Failure: ${env.JOB_NAME}",
+                body: "The Jenkins job ${env.JOB_NAME} has failed. Please check the console output for details.",
+                to: 'dwaipayanghosh2014@gmail.com'
+            )
+        }
+    }
+}
